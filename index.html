@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You</title>
 
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  text-align:center;
+  background:#bde0ff;
+}
+
+.page{
+  display:none;
+  height:100vh;
+  padding:30px;
+}
+
+.active{
+  display:block;
+}
+
+button{
+  padding:10px 20px;
+  margin:10px;
+  border:none;
+  border-radius:20px;
+  background:white;
+  cursor:pointer;
+}
+
+.letter-bg{
+  background:#d2b48c;
+  min-height:100vh;
+  padding:30px;
+}
+
+.option-box{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.option{
+  margin:10px;
+  padding:15px;
+  background:white;
+  border-radius:15px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+  <h1>Happy Birthday</h1>
+  <button onclick="showPage('p2')">Next</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+  <h2>Letter for you</h2>
+  <div style="font-size:60px;">✉️</div>
+  <button onclick="showPage('p1')">Go Back</button>
+  <button onclick="showPage('p3')">Open it</button>
+</div>
+
+<!-- PAGE 3 MAIN LETTER -->
+<div class="page letter-bg" id="p3">
+  <h2>Untuk Kamu</h2>
+  <p>Ini surat utama dari aku...</p>
+
+  <h3>Needs more?</h3>
+
+  <div class="option-box">
+    <div class="option" onclick="showPage('sad')">Sad</div>
+    <div class="option" onclick="showPage('thanks')">Thanks</div>
+    <div class="option" onclick="showPage('sorry')">Sorry</div>
+    <div class="option" onclick="showPage('happy')">Happy</div>
+  </div>
+
+  <button onclick="showPage('p1')">That's it</button>
+</div>
+
+<!-- EXTRA LETTERS -->
+
+<div class="page letter-bg" id="sad">
+  <h2>Sad Letter</h2>
+  <p>Isi surat sedih...</p>
+  <button onclick="showPage('p3')">Back</button>
+</div>
+
+<div class="page letter-bg" id="thanks">
+  <h2>Thanks Letter</h2>
+  <p>Isi surat terima kasih...</p>
+  <button onclick="showPage('p3')">Back</button>
+</div>
+
+<div class="page letter-bg" id="sorry">
+  <h2>Sorry Letter</h2>
+  <p>Isi surat maaf...</p>
+  <button onclick="showPage('p3')">Back</button>
+</div>
+
+<div class="page letter-bg" id="happy">
+  <h2>Happy Letter</h2>
+  <p>Isi surat bahagia...</p>
+  <button onclick="showPage('p3')">Back</button>
+</div>
+
+<script>
+function showPage(id){
+  let pages=document.querySelectorAll('.page');
+  pages.forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
